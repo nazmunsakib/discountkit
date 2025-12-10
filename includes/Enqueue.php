@@ -34,7 +34,7 @@ class Enqueue {
 	 */
 	public function admin_scripts( $hook ) {
 		// Admin app for discount manager page
-		if ( 'woocommerce_page_discount-kit' === $hook ) {
+		if ( 'woocommerce_page_discountkit' === $hook ) {
 			// Enqueue Google Fonts
 			wp_enqueue_style(
 				'discountkit-google-fonts',
@@ -92,7 +92,7 @@ class Enqueue {
 			'discountkit-admin-app',
 			'DiscountKitObj',
 			array(
-				'apiUrl' => rest_url( 'discount-kit/v1/' ),
+				'apiUrl' => rest_url( 'discountkit/v1/' ),
 				'nonce'  => wp_create_nonce( 'wp_rest' ),
 			)
 		);

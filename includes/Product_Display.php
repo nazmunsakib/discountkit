@@ -151,14 +151,14 @@ class Product_Display {
 		
 		if ( $badge_setting === 'when_condition_matches' ) {
 			if ( Calculator::is_product_on_sale( $product_id ) ) {
-				return '<span class="onsale">' . esc_html__( 'Sale!', 'discount-kit' ) . '</span>';
+				return '<span class="onsale">' . esc_html__( 'Sale!', 'discountkit' ) . '</span>';
 			}
 			return '';
 		}
 		
 		if ( $badge_setting === 'at_least_has_any_rules' ) {
 			if ( Calculator::is_product_on_sale( $product_id ) ) {
-				return '<span class="onsale">' . esc_html__( 'Sale!', 'discount-kit' ) . '</span>';
+				return '<span class="onsale">' . esc_html__( 'Sale!', 'discountkit' ) . '</span>';
 			}
 			return '';
 		}
@@ -183,7 +183,7 @@ class Product_Display {
 		}
 		
 		echo '<div class="discountkit-discount-bar">';
-		echo '<span class="discountkit-discount-text">' . esc_html__( 'Special Discount Available!', 'discount-kit' ) . '</span>';
+		echo '<span class="discountkit-discount-text">' . esc_html__( 'Special Discount Available!', 'discountkit' ) . '</span>';
 		echo '</div>';
 	}
 
@@ -213,12 +213,12 @@ class Product_Display {
 		$base_price = $bulk_data['base_price'];
 		
 		echo '<div class="discountkit-bulk-pricing-table">';
-		echo '<h4>' . esc_html__( 'Bulk Pricing', 'discount-kit' ) . '</h4>';
+		echo '<h4>' . esc_html__( 'Bulk Pricing', 'discountkit' ) . '</h4>';
 		echo '<table>';
 		echo '<thead><tr>';
-		echo '<th>' . esc_html__( 'Quantity', 'discount-kit' ) . '</th>';
-		echo '<th>' . esc_html__( 'Discount', 'discount-kit' ) . '</th>';
-		echo '<th>' . esc_html__( 'Price', 'discount-kit' ) . '</th>';
+		echo '<th>' . esc_html__( 'Quantity', 'discountkit' ) . '</th>';
+		echo '<th>' . esc_html__( 'Discount', 'discountkit' ) . '</th>';
+		echo '<th>' . esc_html__( 'Price', 'discountkit' ) . '</th>';
 		echo '</tr></thead>';
 		echo '<tbody>';
 		
@@ -235,13 +235,13 @@ class Product_Display {
 			}
 			
 			if ( $discount_type === 'percentage' ) {
-				$discount_text = $discount_value . '% ' . esc_html__( 'off', 'discount-kit' );
+				$discount_text = $discount_value . '% ' . esc_html__( 'off', 'discountkit' );
 				$final_price = $base_price - ( ( $base_price * $discount_value ) / 100 );
 			} elseif ( $discount_type === 'fixed_price' ) {
-				$discount_text = esc_html__( 'Fixed price', 'discount-kit' );
+				$discount_text = esc_html__( 'Fixed price', 'discountkit' );
 				$final_price = $discount_value;
 			} else {
-				$discount_text = wc_price( $discount_value ) . ' ' . esc_html__( 'off', 'discount-kit' );
+				$discount_text = wc_price( $discount_value ) . ' ' . esc_html__( 'off', 'discountkit' );
 				$final_price = $base_price - $discount_value;
 			}
 			

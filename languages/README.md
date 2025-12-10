@@ -4,13 +4,13 @@ This directory contains translation files for theDiscountKit plugin.
 
 ## File Structure
 
-- `discount-kit.pot` - Template file for translations
+- `discountkit.pot` - Template file for translations
 - `discountkit-{locale}.po` - Translation files for specific languages
 - `discountkit-{locale}.mo` - Compiled translation files
 
 ## How to Translate
 
-1. Copy `discount-kit.pot` to `discountkit-{locale}.po`
+1. Copy `discountkit.pot` to `discountkit-{locale}.po`
    - Example: `discountkit-es_ES.po` for Spanish (Spain)
    - Example: `discountkit-fr_FR.po` for French (France)
    - Example: `discountkit-de_DE.po` for German (Germany)
@@ -37,9 +37,9 @@ This directory contains translation files for theDiscountKit plugin.
 ## Contributing Translations
 
 If you would like to contribute a translation, please submit a pull request to:
-https://github.com/nazmunsakib/discount-kit
+https://github.com/nazmunsakib/discountkit
 
 ## WordPress.org Translations
 
 Once the plugin is published on WordPress.org, translations can also be contributed through:
-https://translate.wordpress.org/projects/wp-plugins/discount-kit
+https://translate.wordpress.org/projects/wp-plugins/discountkit

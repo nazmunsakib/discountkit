@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version:DiscountKit 1.0.0\n"
-"Report-Msgid-Bugs-To: https://github.com/nazmunsakib/discount-kit/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/nazmunsakib/discountkit/issues\n"
 "POT-Creation-Date: 2024-01-01 00:00:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: WP-CLI 2.9.0\n"
-"X-Domain: discount-kit\n"
+"X-Domain: discountkit\n"
 
 #: includes/Admin.php
 msgid "DiscountKit"

@@ -65,7 +65,7 @@ Each rule supports multiple discount calculation methods:
 
 == Installation ==
 
-1. Upload the plugin files to the /wp-content/plugins/discount-kit/ directory, or install the plugin through the WordPress Plugins screen.
+1. Upload the plugin files to the /wp-content/plugins/discountkit/ directory, or install the plugin through the WordPress Plugins screen.
 2. Activate the plugin through the Plugins menu in WordPress.
 3. Ensure WooCommerce is installed and activated.
 4. Navigate to WooCommerce > DiscountKit to configure your discount rules.
@@ -133,4 +133,4 @@ Initial release of DiscountKit – WooCommerce Discount Rules, Bulk Discounts & 
 == Additional Information ==
 
 For support, feature requests, or bug reports, visit:
-https://github.com/nazmunsakib/discount-kit
+https://github.com/nazmunsakib/discountkit

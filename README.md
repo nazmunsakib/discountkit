@@ -98,14 +98,14 @@ DiscountKit enables store owners to create sophisticated discount systems withou
 
 ### Manual Installation
 
-1. Upload the `discount-kit` folder to `/wp-content/plugins/`
+1. Upload the `discountkit` folder to `/wp-content/plugins/`
 2. Activate the plugin through the **Plugins** menu in WordPress
 3. Navigate to **WooCommerce >DiscountKit** to configure
 
 ### Via Composer
 
 ```bash
-composer require nazmunsakib/discount-kit
+composer require nazmunsakib/discountkit
 ```
 
 ## 📖 Usage Guide
@@ -273,11 +273,11 @@ add_action('discountkit_discount_calculated', function($discount_amount, $cart) 
 Access discount rules programmatically:
 
 ```
-GET /wp-json/discount-kit/v1/rules
-GET /wp-json/discount-kit/v1/rules/{id}
-POST /wp-json/discount-kit/v1/rules
-PUT /wp-json/discount-kit/v1/rules/{id}
-DELETE /wp-json/discount-kit/v1/rules/{id}
+GET /wp-json/discountkit/v1/rules
+GET /wp-json/discountkit/v1/rules/{id}
+POST /wp-json/discountkit/v1/rules
+PUT /wp-json/discountkit/v1/rules/{id}
+DELETE /wp-json/discountkit/v1/rules/{id}
 ```
 
 ### Database Schema
@@ -325,7 +325,7 @@ Contributions are welcome! Please follow these steps:
 
 ```bash
 # Clone repository
-git clone https://github.com/nazmunsakib/discount-kit.git
+git clone https://github.com/nazmunsakib/discountkit.git
 
 # Install dependencies
 composer install
@@ -379,9 +379,9 @@ GNU General Public License for more details.
 
 ## 🙏 Support
 
-- **Documentation**: [GitHub Wiki](https://github.com/nazmunsakib/discount-kit/wiki)
-- **Issues**: [GitHub Issues](https://github.com/nazmunsakib/discount-kit/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/nazmunsakib/discount-kit/discussions)
+- **Documentation**: [GitHub Wiki](https://github.com/nazmunsakib/discountkit/wiki)
+- **Issues**: [GitHub Issues](https://github.com/nazmunsakib/discountkit/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/nazmunsakib/discountkit/discussions)
 
 ## ⭐ Show Your Support
 

@@ -30,7 +30,7 @@ class REST_API {
 	 * Register REST API routes
 	 */
 	public function register_routes() {
-		register_rest_route( 'discount-kit/v1', '/rules', array(
+		register_rest_route( 'discountkit/v1', '/rules', array(
 			array(
 				'methods' => 'GET',
 				'callback' => array( $this, 'get_rules' ),
@@ -43,7 +43,7 @@ class REST_API {
 			),
 		) );
 
-		register_rest_route( 'discount-kit/v1', '/rules/(?P<id>\d+)', array(
+		register_rest_route( 'discountkit/v1', '/rules/(?P<id>\d+)', array(
 			array(
 				'methods' => 'GET',
 				'callback' => array( $this, 'get_rule' ),
@@ -61,31 +61,31 @@ class REST_API {
 			),
 		) );
 
-		register_rest_route( 'discount-kit/v1', '/products', array(
+		register_rest_route( 'discountkit/v1', '/products', array(
 			'methods' => 'GET',
 			'callback' => array( $this, 'get_products' ),
 			'permission_callback' => array( $this, 'check_permissions' ),
 		) );
 
-		register_rest_route( 'discount-kit/v1', '/categories', array(
+		register_rest_route( 'discountkit/v1', '/categories', array(
 			'methods' => 'GET',
 			'callback' => array( $this, 'get_categories' ),
 			'permission_callback' => array( $this, 'check_permissions' ),
 		) );
 
-		register_rest_route( 'discount-kit/v1', '/rules/(?P<id>\d+)/duplicate', array(
+		register_rest_route( 'discountkit/v1', '/rules/(?P<id>\d+)/duplicate', array(
 			'methods' => 'POST',
 			'callback' => array( $this, 'duplicate_rule' ),
 			'permission_callback' => array( $this, 'check_permissions' ),
 		) );
 
-		register_rest_route( 'discount-kit/v1', '/customers', array(
+		register_rest_route( 'discountkit/v1', '/customers', array(
 			'methods' => 'GET',
 			'callback' => array( $this, 'get_customers' ),
 			'permission_callback' => array( $this, 'check_permissions' ),
 		) );
 
-		register_rest_route( 'discount-kit/v1', '/settings', array(
+		register_rest_route( 'discountkit/v1', '/settings', array(
 			array(
 				'methods' => 'GET',
 				'callback' => array( $this, 'get_settings' ),
@@ -98,7 +98,7 @@ class REST_API {
 			),
 		) );
 
-		register_rest_route( 'discount-kit/v1', '/settings/reset', array(
+		register_rest_route( 'discountkit/v1', '/settings/reset', array(
 			'methods' => 'POST',
 			'callback' => array( $this, 'reset_settings' ),
 			'permission_callback' => array( $this, 'check_permissions' ),
@@ -266,7 +266,7 @@ class REST_API {
 				} elseif ( $price ) {
 					$price_text = wc_price( $price );
 				} else {
-					$price_text = __( 'Price not set', 'discount-kit' );
+					$price_text = __( 'Price not set', 'discountkit' );
 				}
 				
 				$result[] = array(

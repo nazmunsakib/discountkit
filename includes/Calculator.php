@@ -396,7 +396,7 @@ class Calculator {
 	 */
 	private static function get_settings() {
 		$cache_key = 'discountkit_settings';
-		$settings = wp_cache_get( $cache_key, 'discount-kit' );
+		$settings = wp_cache_get( $cache_key, 'discountkit' );
 		
 		if ( false !== $settings ) {
 			return $settings;
@@ -420,7 +420,7 @@ class Calculator {
 			}
 		}
 		
-		wp_cache_set( $cache_key, $settings, 'discount-kit', 3600 );
+		wp_cache_set( $cache_key, $settings, 'discountkit', 3600 );
 		
 		return $settings;
 	}

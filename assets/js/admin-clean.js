@@ -36,17 +36,17 @@
             
             return createElement('div', { className: 'discountkit-container' },
                 createElement('div', { className: 'discountkit-header' },
-                    createElement('h2', null, __('Discount Rules', 'discount-kit')),
+                    createElement('h2', null, __('Discount Rules', 'discountkit')),
                     createElement(Button, {
                         variant: 'primary',
                         onClick: onAdd
-                    }, __('Add New Rule', 'discount-kit'))
+                    }, __('Add New Rule', 'discountkit'))
                 ),
                 
                 rules.length === 0 ? 
                     createElement('div', { className: 'discountkit-empty' },
-                        createElement('p', null, __('No discount rules found.', 'discount-kit')),
-                        createElement('p', null, __('Create your first rule to get started!', 'discount-kit'))
+                        createElement('p', null, __('No discount rules found.', 'discountkit')),
+                        createElement('p', null, __('Create your first rule to get started!', 'discountkit'))
                     ) :
                     createElement('div', { className: 'discountkit-grid' },
                         rules.map(function(rule) {
@@ -63,7 +63,7 @@
                                                 }),
                                                 createElement('span', { className: 'discountkit-toggle-slider' }),
                                                 createElement('span', { className: 'discountkit-toggle-label' }, 
-                                                    rule.status === 'active' ? __('Active', 'discount-kit') : __('Inactive', 'discount-kit')
+                                                    rule.status === 'active' ? __('Active', 'discountkit') : __('Inactive', 'discountkit')
                                                 )
                                             )
                                         )
@@ -108,18 +108,18 @@
                                             variant: 'secondary',
                                             size: 'small',
                                             onClick: function() { onEdit(rule); }
-                                        }, __('Edit', 'discount-kit')),
+                                        }, __('Edit', 'discountkit')),
                                         createElement(Button, {
                                             variant: 'secondary',
                                             size: 'small',
                                             onClick: function() { onDuplicate(rule.id); }
-                                        }, __('Duplicate', 'discount-kit')),
+                                        }, __('Duplicate', 'discountkit')),
                                         createElement(Button, {
                                             variant: 'link',
                                             isDestructive: true,
                                             size: 'small',
                                             onClick: function() { onDelete(rule.id); }
-                                        }, __('Delete', 'discount-kit'))
+                                        }, __('Delete', 'discountkit'))
                                     )
                                 )
                             );
@@ -218,7 +218,7 @@
                 }
                 
                 wp.apiFetch({
-                    path: '/discount-kit/v1/products?search=' + encodeURIComponent(query)
+                    path: '/discountkit/v1/products?search=' + encodeURIComponent(query)
                 })
                 .then(function(products) {
                     searchResultsState[1](products);
@@ -252,7 +252,7 @@
             
             function handleSave() {
                 if (!title || !title.trim()) {
-                    alert(__('Please enter a rule title', 'discount-kit'));
+                    alert(__('Please enter a rule title', 'discountkit'));
                     return;
                 }
                 
@@ -289,31 +289,31 @@
 
             
             return createElement('div', { className: 'discountkit-form-container' },
-                createElement('h2', null, rule ? __('Edit Rule', 'discount-kit') : __('Add New Rule', 'discount-kit')),
+                createElement('h2', null, rule ? __('Edit Rule', 'discountkit') : __('Add New Rule', 'discountkit')),
                 
                 // Basic Info
                 createElement('div', { className: 'discountkit-form-section' },
-                    createElement('h3', null, __('Basic Information', 'discount-kit')),
+                    createElement('h3', null, __('Basic Information', 'discountkit')),
                     createElement('div', { className: 'discountkit-form-field' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Rule Title', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Rule Title', 'discountkit')),
                         createElement('input', {
                             type: 'text',
                             value: title,
                             onChange: function(e) { setTitle(e.target.value); },
-                            placeholder: __('e.g., Summer Sale 20% Off', 'discount-kit')
+                            placeholder: __('e.g., Summer Sale 20% Off', 'discountkit')
                         })
                     ),
                     createElement('div', { className: 'discountkit-form-field' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Description (Optional)', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Description (Optional)', 'discountkit')),
                         createElement('input', {
                             type: 'text',
                             value: description,
                             onChange: function(e) { setDescription(e.target.value); },
-                            placeholder: __('Brief description of this discount rule', 'discount-kit')
+                            placeholder: __('Brief description of this discount rule', 'discountkit')
                         })
                     ),
                     createElement('div', { className: 'discountkit-form-toggle' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Status', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Status', 'discountkit')),
                         createElement('div', { className: 'discountkit-toggle-container' },
                             createElement('label', { className: 'discountkit-toggle-switch' },
                                 createElement('input', {
@@ -323,7 +323,7 @@
                                 }),
                                 createElement('span', { className: 'discountkit-toggle-slider' }),
                                 createElement('span', { className: 'discountkit-toggle-label' }, 
-                                    status === 'active' ? __('Active', 'discount-kit') : __('Inactive', 'discount-kit')
+                                    status === 'active' ? __('Active', 'discountkit') : __('Inactive', 'discountkit')
                                 )
                             )
                         )
@@ -332,32 +332,32 @@
                 
                 // Discount Config
                 createElement('div', { className: 'discountkit-form-section' },
-                    createElement('h3', null, __('Discount Configuration', 'discount-kit')),
+                    createElement('h3', null, __('Discount Configuration', 'discountkit')),
                     createElement('div', { className: 'discountkit-form-field' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Rule Type', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Rule Type', 'discountkit')),
                         createElement('select', {
                             value: ruleType,
                             onChange: function(e) { setRuleType(e.target.value); }
                         },
-                            createElement('option', { value: 'product_adjustment' }, __('Product Adjustment', 'discount-kit')),
-                            createElement('option', { value: 'bulk_discount' }, __('Bulk Discount', 'discount-kit')),
-                            createElement('option', { value: 'cart_adjustment' }, __('Cart Adjustment', 'discount-kit'))
+                            createElement('option', { value: 'product_adjustment' }, __('Product Adjustment', 'discountkit')),
+                            createElement('option', { value: 'bulk_discount' }, __('Bulk Discount', 'discountkit')),
+                            createElement('option', { value: 'cart_adjustment' }, __('Cart Adjustment', 'discountkit'))
                         )
                     ),
                     
                     ruleType === 'product_adjustment' && createElement('div', null,
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Discount Type', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Discount Type', 'discountkit')),
                             createElement('select', {
                                 value: discountType,
                                 onChange: function(e) { setDiscountType(e.target.value); }
                             },
-                                createElement('option', { value: 'percentage' }, __('Percentage', 'discount-kit')),
-                                createElement('option', { value: 'fixed' }, __('Fixed Amount', 'discount-kit'))
+                                createElement('option', { value: 'percentage' }, __('Percentage', 'discountkit')),
+                                createElement('option', { value: 'fixed' }, __('Fixed Amount', 'discountkit'))
                             )
                         ),
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, discountType === 'percentage' ? __('Discount Percentage', 'discount-kit') : __('Fixed Discount Amount', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, discountType === 'percentage' ? __('Discount Percentage', 'discountkit') : __('Fixed Discount Amount', 'discountkit')),
                             createElement('input', {
                                 type: 'number',
                                 value: discountValue,
@@ -371,17 +371,17 @@
                     
                     ruleType === 'cart_adjustment' && createElement('div', null,
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Discount Type', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Discount Type', 'discountkit')),
                             createElement('select', {
                                 value: discountType,
                                 onChange: function(e) { setDiscountType(e.target.value); }
                             },
-                                createElement('option', { value: 'percentage' }, __('Percentage', 'discount-kit')),
-                                createElement('option', { value: 'fixed' }, __('Fixed Amount', 'discount-kit'))
+                                createElement('option', { value: 'percentage' }, __('Percentage', 'discountkit')),
+                                createElement('option', { value: 'fixed' }, __('Fixed Amount', 'discountkit'))
                             )
                         ),
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, discountType === 'percentage' ? __('Discount Percentage', 'discount-kit') : __('Fixed Discount Amount', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, discountType === 'percentage' ? __('Discount Percentage', 'discountkit') : __('Fixed Discount Amount', 'discountkit')),
                             createElement('input', {
                                 type: 'number',
                                 value: discountValue,
@@ -392,49 +392,49 @@
                             })
                         ),
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Cart Label (Optional)', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Cart Label (Optional)', 'discountkit')),
                             createElement('input', {
                                 type: 'text',
                                 value: cartLabel,
                                 onChange: function(e) { setCartLabel(e.target.value); },
-                                placeholder: __('e.g., Special Discount', 'discount-kit')
+                                placeholder: __('e.g., Special Discount', 'discountkit')
                             }),
                             createElement('p', { className: 'discountkit-field-help' }, 
-                                __('Label shown in cart for this discount', 'discount-kit')
+                                __('Label shown in cart for this discount', 'discountkit')
                             )
                         )
                     ),
                     
                     ruleType === 'bulk_discount' && createElement('div', { className: 'discountkit-bulk-ranges' },
                         createElement('div', { className: 'discountkit-form-field', style: { marginBottom: '15px' } },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Bulk Operator', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Bulk Operator', 'discountkit')),
                             createElement('select', {
                                 value: bulkOperator,
                                 onChange: function(e) { setBulkOperator(e.target.value); }
                             },
-                                createElement('option', { value: 'product_individual' }, __('Individual Product (each product quantity counted separately)', 'discount-kit')),
-                                createElement('option', { value: 'product_cumulative' }, __('Cumulative (total quantity of matching products)', 'discount-kit'))
+                                createElement('option', { value: 'product_individual' }, __('Individual Product (each product quantity counted separately)', 'discountkit')),
+                                createElement('option', { value: 'product_cumulative' }, __('Cumulative (total quantity of matching products)', 'discountkit'))
                             ),
                             createElement('p', { className: 'discountkit-field-help' }, 
-                                __('Individual: Each product\'s quantity determines its discount. Cumulative: Total quantity of all matching products determines discount.', 'discount-kit')
+                                __('Individual: Each product\'s quantity determines its discount. Cumulative: Total quantity of all matching products determines discount.', 'discountkit')
                             )
                         ),
                         createElement('p', { className: 'discountkit-field-help', style: { marginBottom: '15px', marginTop: '0' } }, 
-                            __('Define quantity ranges and their discounts. Example: Buy 2-5 get 10% off, Buy 6+ get 20% off', 'discount-kit')
+                            __('Define quantity ranges and their discounts. Example: Buy 2-5 get 10% off, Buy 6+ get 20% off', 'discountkit')
                         ),
                         createElement('div', { className: 'discountkit-bulk-range-header' },
-                            createElement('div', null, __('Label', 'discount-kit')),
-                            createElement('div', null, __('Min Qty', 'discount-kit')),
-                            createElement('div', null, __('Max Qty', 'discount-kit')),
-                            createElement('div', null, __('Type', 'discount-kit')),
-                            createElement('div', null, __('Value', 'discount-kit')),
+                            createElement('div', null, __('Label', 'discountkit')),
+                            createElement('div', null, __('Min Qty', 'discountkit')),
+                            createElement('div', null, __('Max Qty', 'discountkit')),
+                            createElement('div', null, __('Type', 'discountkit')),
+                            createElement('div', null, __('Value', 'discountkit')),
                             createElement('div', null)
                         ),
                         bulkRanges.map(function(range, index) {
                             return createElement('div', { key: index, className: 'discountkit-bulk-range-row' },
                                 createElement('div', { className: 'discountkit-bulk-range-fields' },
                                     createElement('div', { className: 'discountkit-form-field' },
-                                        createElement('label', null, __('Label', 'discount-kit')),
+                                        createElement('label', null, __('Label', 'discountkit')),
                                         createElement('input', {
                                             type: 'text',
                                             value: range.label || '',
@@ -443,11 +443,11 @@
                                                 newRanges[index].label = e.target.value;
                                                 setBulkRanges(newRanges);
                                             },
-                                            placeholder: __('e.g., Starter Pack', 'discount-kit')
+                                            placeholder: __('e.g., Starter Pack', 'discountkit')
                                         })
                                     ),
                                     createElement('div', { className: 'discountkit-form-field' },
-                                        createElement('label', null, __('Min Qty', 'discount-kit')),
+                                        createElement('label', null, __('Min Qty', 'discountkit')),
                                         createElement('input', {
                                             type: 'number',
                                             value: range.min,
@@ -460,7 +460,7 @@
                                         })
                                     ),
                                     createElement('div', { className: 'discountkit-form-field' },
-                                        createElement('label', null, __('Max Qty', 'discount-kit')),
+                                        createElement('label', null, __('Max Qty', 'discountkit')),
                                         createElement('input', {
                                             type: 'number',
                                             value: range.max || '',
@@ -469,12 +469,12 @@
                                                 newRanges[index].max = e.target.value ? parseInt(e.target.value) : null;
                                                 setBulkRanges(newRanges);
                                             },
-                                            placeholder: __('Unlimited', 'discount-kit'),
+                                            placeholder: __('Unlimited', 'discountkit'),
                                             min: range.min
                                         })
                                     ),
                                     createElement('div', { className: 'discountkit-form-field' },
-                                        createElement('label', null, __('Type', 'discount-kit')),
+                                        createElement('label', null, __('Type', 'discountkit')),
                                         createElement('select', {
                                             value: range.discount_type,
                                             onChange: function(e) {
@@ -484,12 +484,12 @@
                                             }
                                         },
                                             createElement('option', { value: 'percentage' }, '%'),
-                                            createElement('option', { value: 'fixed' }, __('Fixed', 'discount-kit')),
-                                            createElement('option', { value: 'fixed_price' }, __('Price', 'discount-kit'))
+                                            createElement('option', { value: 'fixed' }, __('Fixed', 'discountkit')),
+                                            createElement('option', { value: 'fixed_price' }, __('Price', 'discountkit'))
                                         )
                                     ),
                                     createElement('div', { className: 'discountkit-form-field' },
-                                        createElement('label', null, __('Value', 'discount-kit')),
+                                        createElement('label', null, __('Value', 'discountkit')),
                                         createElement('input', {
                                             type: 'number',
                                             value: range.discount_value,
@@ -523,51 +523,51 @@
                                 setBulkRanges(bulkRanges.concat([{min: 1, max: null, discount_type: 'percentage', discount_value: 10, label: ''}]));
                             },
                             style: { marginTop: '10px' }
-                        }, __('Add Range', 'discount-kit'))
+                        }, __('Add Range', 'discountkit'))
                     )
                 ),
                 
                 // Filter Section
                 createElement('div', { className: 'discountkit-form-section' },
-                    createElement('h3', null, __('Product Selection', 'discount-kit')),
+                    createElement('h3', null, __('Product Selection', 'discountkit')),
                     createElement('p', { style: { marginBottom: '15px', color: '#646970' } }, 
-                        __('Choose which products get the discount', 'discount-kit')
+                        __('Choose which products get the discount', 'discountkit')
                     ),
                     createElement('div', { className: 'discountkit-conditions-grid' },
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Apply to', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Apply to', 'discountkit')),
                             createElement('select', {
                                 value: applyToState[0],
                                 onChange: function(e) { applyToState[1](e.target.value); }
                             },
-                                createElement('option', { value: 'all_products' }, __('All products', 'discount-kit')),
-                                createElement('option', { value: 'specific_products' }, __('Specific products', 'discount-kit'))
+                                createElement('option', { value: 'all_products' }, __('All products', 'discountkit')),
+                                createElement('option', { value: 'specific_products' }, __('Specific products', 'discountkit'))
                             )
                         ),
                         applyToState[0] === 'specific_products' && createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Filter method', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Filter method', 'discountkit')),
                             createElement('select', {
                                 value: filterMethodState[0],
                                 onChange: function(e) { filterMethodState[1](e.target.value); }
                             },
-                                createElement('option', { value: 'include' }, __('Include selected products', 'discount-kit')),
-                                createElement('option', { value: 'exclude' }, __('Exclude selected products', 'discount-kit'))
+                                createElement('option', { value: 'include' }, __('Include selected products', 'discountkit')),
+                                createElement('option', { value: 'exclude' }, __('Exclude selected products', 'discountkit'))
                             ),
                             createElement('p', { 
                                 className: 'discountkit-filter-instruction' + (filterMethodState[0] === 'exclude' ? ' exclude' : '')
                             }, 
                                 filterMethodState[0] === 'include' ? 
-                                    __('✓ Discount will apply ONLY to the selected products', 'discount-kit') :
-                                    __('✗ Discount will apply to ALL products EXCEPT the selected ones', 'discount-kit')
+                                    __('✓ Discount will apply ONLY to the selected products', 'discountkit') :
+                                    __('✗ Discount will apply to ALL products EXCEPT the selected ones', 'discountkit')
                             )
                         )
                     ),
                     applyToState[0] === 'specific_products' && createElement('div', { className: 'discountkit-product-selector' },
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Search and select products', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Search and select products', 'discountkit')),
                             createElement('input', {
                                 type: 'text',
-                                placeholder: __('Type to search products...', 'discount-kit'),
+                                placeholder: __('Type to search products...', 'discountkit'),
                                 value: productSearchState[0],
                                 onChange: function(e) { 
                                     productSearchState[1](e.target.value);
@@ -591,7 +591,7 @@
                             })
                         ),
                         selectedProductsState[0].length > 0 && createElement('div', { className: 'discountkit-selected-products' },
-                            createElement('h4', null, __('Selected Products', 'discount-kit')),
+                            createElement('h4', null, __('Selected Products', 'discountkit')),
                             selectedProductsState[0].map(function(product) {
                                 return createElement('div', {
                                     key: product.id,
@@ -611,24 +611,24 @@
                 
                 // Conditions
                 createElement('div', { className: 'discountkit-form-section' },
-                    createElement('h3', null, __('Conditions (Optional)', 'discount-kit')),
+                    createElement('h3', null, __('Conditions (Optional)', 'discountkit')),
                     createElement('div', { className: 'discountkit-conditions-grid' },
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Minimum Cart Subtotal', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Minimum Cart Subtotal', 'discountkit')),
                             createElement('input', {
                                 type: 'number',
                                 value: minSubtotal,
                                 onChange: function(e) { setMinSubtotal(e.target.value); },
-                                placeholder: __('No minimum', 'discount-kit')
+                                placeholder: __('No minimum', 'discountkit')
                             })
                         ),
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Minimum Quantity', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Minimum Quantity', 'discountkit')),
                             createElement('input', {
                                 type: 'number',
                                 value: minQuantity,
                                 onChange: function(e) { setMinQuantity(e.target.value); },
-                                placeholder: __('No minimum', 'discount-kit')
+                                placeholder: __('No minimum', 'discountkit')
                             })
                         )
                     )
@@ -636,23 +636,23 @@
                 
                 // Advanced
                 createElement('div', { className: 'discountkit-form-section' },
-                    createElement('h3', null, __('Advanced Settings', 'discount-kit')),
+                    createElement('h3', null, __('Advanced Settings', 'discountkit')),
                     createElement('div', { className: 'discountkit-advanced-grid' },
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Usage Limit', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Usage Limit', 'discountkit')),
                             createElement('input', {
                                 type: 'number',
                                 value: usageLimit,
                                 onChange: function(e) { setUsageLimit(e.target.value); },
-                                placeholder: __('Unlimited', 'discount-kit'),
+                                placeholder: __('Unlimited', 'discountkit'),
                                 min: 0
                             }),
                             createElement('p', { className: 'discountkit-field-help' }, 
-                                __('Maximum number of times this discount can be used. Leave empty for unlimited usage.', 'discount-kit')
+                                __('Maximum number of times this discount can be used. Leave empty for unlimited usage.', 'discountkit')
                             )
                         ),
                         createElement('div', { className: 'discountkit-form-field' },
-                            createElement('label', { className: 'discountkit-form-label' }, __('Priority', 'discount-kit')),
+                            createElement('label', { className: 'discountkit-form-label' }, __('Priority', 'discountkit')),
                             createElement('input', {
                                 type: 'number',
                                 value: priority,
@@ -661,7 +661,7 @@
                                 max: 999
                             }),
                             createElement('p', { className: 'discountkit-field-help' }, 
-                                __('Lower numbers = higher priority. When multiple rules match, lower priority number applies first. Default: 10', 'discount-kit')
+                                __('Lower numbers = higher priority. When multiple rules match, lower priority number applies first. Default: 10', 'discountkit')
                             )
                         )
                     )
@@ -672,11 +672,11 @@
                     createElement(Button, {
                         variant: 'primary',
                         onClick: handleSave
-                    }, rule ? __('Update Rule', 'discount-kit') : __('Create Rule', 'discount-kit')),
+                    }, rule ? __('Update Rule', 'discountkit') : __('Create Rule', 'discountkit')),
                     createElement(Button, {
                         variant: 'secondary',
                         onClick: onCancel
-                    }, __('Cancel', 'discount-kit'))
+                    }, __('Cancel', 'discountkit'))
                 )
             );
         }
@@ -739,7 +739,7 @@
             }, [notice]);
             
             function loadSettings() {
-                wp.apiFetch({ path: '/discount-kit/v1/settings' })
+                wp.apiFetch({ path: '/discountkit/v1/settings' })
                     .then(function(settings) {
                         if (settings.calculate_from) setCalculateFrom(settings.calculate_from);
                         if (settings.apply_product_discount_to) setApplyRules(settings.apply_product_discount_to);
@@ -773,15 +773,15 @@
                 };
                 
                 wp.apiFetch({
-                    path: '/discount-kit/v1/settings',
+                    path: '/discountkit/v1/settings',
                     method: 'POST',
                     data: settings
                 })
                 .then(function() {
-                    setNotice({ type: 'success', message: __('Settings saved successfully!', 'discount-kit') });
+                    setNotice({ type: 'success', message: __('Settings saved successfully!', 'discountkit') });
                 })
                 .catch(function(error) {
-                    setNotice({ type: 'error', message: __('Failed to save settings', 'discount-kit') });
+                    setNotice({ type: 'error', message: __('Failed to save settings', 'discountkit') });
                 });
             }
             
@@ -793,15 +793,15 @@
                 setResetModal(false);
                 
                 wp.apiFetch({
-                    path: '/discount-kit/v1/settings/reset',
+                    path: '/discountkit/v1/settings/reset',
                     method: 'POST'
                 })
                 .then(function() {
-                    setNotice({ type: 'success', message: __('Settings reset successfully!', 'discount-kit') });
+                    setNotice({ type: 'success', message: __('Settings reset successfully!', 'discountkit') });
                     loadSettings();
                 })
                 .catch(function(error) {
-                    setNotice({ type: 'error', message: __('Failed to reset settings', 'discount-kit') });
+                    setNotice({ type: 'error', message: __('Failed to reset settings', 'discountkit') });
                 });
             }
             
@@ -820,21 +820,21 @@
                     }, '×')
                 ),
                 resetModal && createElement(Modal, {
-                    title: __('Reset Settings', 'discount-kit'),
+                    title: __('Reset Settings', 'discountkit'),
                     onRequestClose: function() { setResetModal(false); },
                     className: 'discountkit-delete-modal'
                 },
-                    createElement('p', null, __('Are you sure you want to reset all settings to defaults? This action cannot be undone.', 'discount-kit')),
+                    createElement('p', null, __('Are you sure you want to reset all settings to defaults? This action cannot be undone.', 'discountkit')),
                     createElement('div', { className: 'discountkit-modal-actions' },
                         createElement(Button, {
                             variant: 'secondary',
                             onClick: function() { setResetModal(false); }
-                        }, __('Cancel', 'discount-kit')),
+                        }, __('Cancel', 'discountkit')),
                         createElement(Button, {
                             variant: 'primary',
                             isDestructive: true,
                             onClick: confirmReset
-                        }, __('Reset', 'discount-kit'))
+                        }, __('Reset', 'discountkit'))
                     )
                 ),
                 
@@ -843,46 +843,46 @@
                     createElement('div', { className: 'discountkit-form-section' },
                     createElement('h3', null, 
                         createElement('span', { className: 'dashicons dashicons-admin-settings' }),
-                        ' ' + __('General Settings', 'discount-kit')
+                        ' ' + __('General Settings', 'discountkit')
                     ),
                     createElement('div', { className: 'discountkit-select-wrapper' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Calculate discount from', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Calculate discount from', 'discountkit')),
                         createElement('select', {
                             value: calculateFrom,
                             onChange: function(e) { setCalculateFrom(e.target.value); }
                         },
-                            createElement('option', { value: 'regular_price' }, __('Regular price', 'discount-kit')),
-                            createElement('option', { value: 'sale_price' }, __('Sale price', 'discount-kit'))
+                            createElement('option', { value: 'regular_price' }, __('Regular price', 'discountkit')),
+                            createElement('option', { value: 'sale_price' }, __('Sale price', 'discountkit'))
                         )
                     ),
                     createElement('div', { className: 'discountkit-select-wrapper' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Apply discount rules', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Apply discount rules', 'discountkit')),
                         createElement('select', {
                             value: applyRules,
                             onChange: function(e) { setApplyRules(e.target.value); }
                         },
-                            createElement('option', { value: 'first' }, __('First matched rule (respects priority)', 'discount-kit')),
-                            createElement('option', { value: 'biggest_discount' }, __('Biggest discount from matched rules', 'discount-kit')),
-                            createElement('option', { value: 'lowest_discount' }, __('Lowest discount from matched rules', 'discount-kit')),
-                            createElement('option', { value: 'all' }, __('All matched rules', 'discount-kit'))
+                            createElement('option', { value: 'first' }, __('First matched rule (respects priority)', 'discountkit')),
+                            createElement('option', { value: 'biggest_discount' }, __('Biggest discount from matched rules', 'discountkit')),
+                            createElement('option', { value: 'lowest_discount' }, __('Lowest discount from matched rules', 'discountkit')),
+                            createElement('option', { value: 'all' }, __('All matched rules', 'discountkit'))
                         ),
                         createElement('p', { className: 'discountkit-field-help' }, 
-                            __('Choose "First matched rule" to respect priority settings. Rules are checked in priority order (lower number first).', 'discount-kit')
+                            __('Choose "First matched rule" to respect priority settings. Rules are checked in priority order (lower number first).', 'discountkit')
                         )
                     ),
                     createElement('div', { className: 'discountkit-select-wrapper' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Coupon behavior', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Coupon behavior', 'discountkit')),
                         createElement('select', {
                             value: couponBehavior,
                             onChange: function(e) { setCouponBehavior(e.target.value); }
                         },
-                            createElement('option', { value: 'run_both' }, __('Let both coupons and discount rules work together', 'discount-kit')),
-                            createElement('option', { value: 'disable_coupon' }, __('Disable coupons when discount rules apply', 'discount-kit')),
-                            createElement('option', { value: 'disable_rules' }, __('Disable discount rules when coupons apply', 'discount-kit'))
+                            createElement('option', { value: 'run_both' }, __('Let both coupons and discount rules work together', 'discountkit')),
+                            createElement('option', { value: 'disable_coupon' }, __('Disable coupons when discount rules apply', 'discountkit')),
+                            createElement('option', { value: 'disable_rules' }, __('Disable discount rules when coupons apply', 'discountkit'))
                         )
                     ),
                     createElement('div', { className: 'discountkit-form-toggle' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Suppress third party discount plugins', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Suppress third party discount plugins', 'discountkit')),
                         createElement('div', { className: 'discountkit-toggle-container' },
                             createElement('label', { className: 'discountkit-toggle-switch' },
                                 createElement('input', {
@@ -892,12 +892,12 @@
                                 }),
                                 createElement('span', { className: 'discountkit-toggle-slider' }),
                                 createElement('span', { className: 'discountkit-toggle-label' }, 
-                                    suppressThirdParty ? __('Enabled', 'discount-kit') : __('Disabled', 'discount-kit')
+                                    suppressThirdParty ? __('Enabled', 'discountkit') : __('Disabled', 'discountkit')
                                 )
                             )
                         ),
                         createElement('p', { className: 'discountkit-field-help' }, 
-                            __('Prevent other discount plugins from applying discounts when this plugin is active.', 'discount-kit')
+                            __('Prevent other discount plugins from applying discounts when this plugin is active.', 'discountkit')
                         )
                     )
                     ),
@@ -906,25 +906,25 @@
                     createElement('div', { className: 'discountkit-form-section' },
                     createElement('h3', null, 
                         createElement('span', { className: 'dashicons dashicons-products' }),
-                        ' ' + __('Product Settings', 'discount-kit')
+                        ' ' + __('Product Settings', 'discountkit')
                     ),
                     createElement('div', { className: 'discountkit-select-wrapper' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('On-sale badge', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('On-sale badge', 'discountkit')),
                         createElement('select', {
                             value: showSaleBadge,
                             onChange: function(e) { setShowSaleBadge(e.target.value); }
                         },
-                            createElement('option', { value: 'when_condition_matches' }, __('Show when rule condition matches', 'discount-kit')),
-                            createElement('option', { value: 'at_least_has_any_rules' }, __('Show on products covered by any rule', 'discount-kit')),
-                            createElement('option', { value: 'disabled' }, __('Do not show', 'discount-kit'))
+                            createElement('option', { value: 'when_condition_matches' }, __('Show when rule condition matches', 'discountkit')),
+                            createElement('option', { value: 'at_least_has_any_rules' }, __('Show on products covered by any rule', 'discountkit')),
+                            createElement('option', { value: 'disabled' }, __('Do not show', 'discountkit'))
                         ),
                         createElement('p', { className: 'discountkit-field-help' }, 
-                            __('Display "Sale!" badge on products with active discount rules.', 'discount-kit')
+                            __('Display "Sale!" badge on products with active discount rules.', 'discountkit')
                         )
                     ),
 
                     createElement('div', { className: 'discountkit-form-toggle' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Show strikeout price', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Show strikeout price', 'discountkit')),
                         createElement('div', { className: 'discountkit-toggle-container' },
                             createElement('label', { className: 'discountkit-toggle-switch' },
                                 createElement('input', {
@@ -934,13 +934,13 @@
                                 }),
                                 createElement('span', { className: 'discountkit-toggle-slider' }),
                                 createElement('span', { className: 'discountkit-toggle-label' }, 
-                                    showStrikeout ? __('Show', 'discount-kit') : __('Hide', 'discount-kit')
+                                    showStrikeout ? __('Show', 'discountkit') : __('Hide', 'discountkit')
                                 )
                             )
                         )
                     ),
                     createElement('div', { className: 'discountkit-form-toggle' },
-                        createElement('label', { className: 'discountkit-form-label' }, __('Show bulk pricing table', 'discount-kit')),
+                        createElement('label', { className: 'discountkit-form-label' }, __('Show bulk pricing table', 'discountkit')),
                         createElement('div', { className: 'discountkit-toggle-container' },
                             createElement('label', { className: 'discountkit-toggle-switch' },
                                 createElement('input', {
@@ -950,12 +950,12 @@
                                 }),
                                 createElement('span', { className: 'discountkit-toggle-slider' }),
                                 createElement('span', { className: 'discountkit-toggle-label' }, 
-                                    showBulkTable ? __('Show', 'discount-kit') : __('Hide', 'discount-kit')
+                                    showBulkTable ? __('Show', 'discountkit') : __('Hide', 'discountkit')
                                 )
                             )
                         ),
                         createElement('p', { className: 'discountkit-field-help' }, 
-                            __('Display bulk pricing table on product pages with bulk discount rules.', 'discount-kit')
+                            __('Display bulk pricing table on product pages with bulk discount rules.', 'discountkit')
                         )
                     )
                     )
@@ -965,13 +965,13 @@
                     createElement(Button, {
                         variant: 'primary',
                         onClick: handleSave
-                    }, __('Save Settings', 'discount-kit')),
+                    }, __('Save Settings', 'discountkit')),
                     createElement(Button, {
                         variant: 'secondary',
                         isDestructive: true,
                         onClick: handleReset,
                         style: { marginLeft: '10px' }
-                    }, __('Reset to Defaults', 'discount-kit'))
+                    }, __('Reset to Defaults', 'discountkit'))
                 )
             );
         }
@@ -1059,13 +1059,13 @@
             }
             
             function loadRules() {
-                wp.apiFetch({ path: '/discount-kit/v1/rules' })
+                wp.apiFetch({ path: '/discountkit/v1/rules' })
                     .then(function(response) {
                         setRules(response || []);
                         setLoading(false);
                     })
                     .catch(function(error) {
-                        setNotice({ type: 'error', message: __('Failed to load rules', 'discount-kit') });
+                        setNotice({ type: 'error', message: __('Failed to load rules', 'discountkit') });
                         setLoading(false);
                     });
             }
@@ -1073,12 +1073,12 @@
             function handleSaveRule(ruleData) {
                 var request = editingRule ? 
                     wp.apiFetch({
-                        path: '/discount-kit/v1/rules/' + editingRule.id,
+                        path: '/discountkit/v1/rules/' + editingRule.id,
                         method: 'PUT',
                         data: ruleData
                     }) :
                     wp.apiFetch({
-                        path: '/discount-kit/v1/rules',
+                        path: '/discountkit/v1/rules',
                         method: 'POST',
                         data: ruleData
                     });
@@ -1088,8 +1088,8 @@
                         setNotice({ 
                             type: 'success', 
                             message: editingRule ? 
-                                __('Rule updated successfully!', 'discount-kit') :
-                                __('Rule created successfully!', 'discount-kit')
+                                __('Rule updated successfully!', 'discountkit') :
+                                __('Rule created successfully!', 'discountkit')
                         });
                         loadRules();
                         setShowForm(false);
@@ -1097,7 +1097,7 @@
                         updateURL('rules', null);
                     })
                     .catch(function(error) {
-                        setNotice({ type: 'error', message: __('Failed to save rule', 'discount-kit') });
+                        setNotice({ type: 'error', message: __('Failed to save rule', 'discountkit') });
                     });
             }
             
@@ -1110,15 +1110,15 @@
                 setDeleteModal(null);
                 
                 wp.apiFetch({
-                    path: '/discount-kit/v1/rules/' + ruleId,
+                    path: '/discountkit/v1/rules/' + ruleId,
                     method: 'DELETE'
                 })
                 .then(function() {
-                    setNotice({ type: 'success', message: __('Rule deleted successfully!', 'discount-kit') });
+                    setNotice({ type: 'success', message: __('Rule deleted successfully!', 'discountkit') });
                     loadRules();
                 })
                 .catch(function(error) {
-                    setNotice({ type: 'error', message: __('Failed to delete rule', 'discount-kit') });
+                    setNotice({ type: 'error', message: __('Failed to delete rule', 'discountkit') });
                 });
             }
             
@@ -1126,7 +1126,7 @@
                 var newStatus = rule.status === 'active' ? 'inactive' : 'active';
                 
                 wp.apiFetch({
-                    path: '/discount-kit/v1/rules/' + rule.id,
+                    path: '/discountkit/v1/rules/' + rule.id,
                     method: 'PUT',
                     data: { status: newStatus }
                 })
@@ -1134,21 +1134,21 @@
                     loadRules();
                 })
                 .catch(function(error) {
-                    setNotice({ type: 'error', message: __('Failed to update rule status', 'discount-kit') });
+                    setNotice({ type: 'error', message: __('Failed to update rule status', 'discountkit') });
                 });
             }
             
             function handleDuplicateRule(ruleId) {
                 wp.apiFetch({
-                    path: '/discount-kit/v1/rules/' + ruleId + '/duplicate',
+                    path: '/discountkit/v1/rules/' + ruleId + '/duplicate',
                     method: 'POST'
                 })
                 .then(function() {
-                    setNotice({ type: 'success', message: __('Rule duplicated successfully!', 'discount-kit') });
+                    setNotice({ type: 'success', message: __('Rule duplicated successfully!', 'discountkit') });
                     loadRules();
                 })
                 .catch(function(error) {
-                    setNotice({ type: 'error', message: __('Failed to duplicate rule', 'discount-kit') });
+                    setNotice({ type: 'error', message: __('Failed to duplicate rule', 'discountkit') });
                 });
             }
             
@@ -1167,21 +1167,21 @@
                     }, '×')
                 ),
                 deleteModal && createElement(Modal, {
-                    title: __('Delete Rule', 'discount-kit'),
+                    title: __('Delete Rule', 'discountkit'),
                     onRequestClose: function() { setDeleteModal(null); },
                     className: 'discountkit-delete-modal'
                 },
-                    createElement('p', null, __('Are you sure you want to delete this rule? This action cannot be undone.', 'discount-kit')),
+                    createElement('p', null, __('Are you sure you want to delete this rule? This action cannot be undone.', 'discountkit')),
                     createElement('div', { className: 'discountkit-modal-actions' },
                         createElement(Button, {
                             variant: 'secondary',
                             onClick: function() { setDeleteModal(null); }
-                        }, __('Cancel', 'discount-kit')),
+                        }, __('Cancel', 'discountkit')),
                         createElement(Button, {
                             variant: 'primary',
                             isDestructive: true,
                             onClick: confirmDelete
-                        }, __('Delete', 'discount-kit'))
+                        }, __('Delete', 'discountkit'))
                     )
                 ),
                 // Tab Navigation
@@ -1193,14 +1193,14 @@
                                 setActiveTab('rules');
                                 updateURL('rules', null);
                             }
-                        }, __('Discount Rules', 'discount-kit')),
+                        }, __('Discount Rules', 'discountkit')),
                         createElement('button', {
                             className: 'discountkit-tab-button' + (activeTab === 'settings' ? ' active' : ''),
                             onClick: function() { 
                                 setActiveTab('settings');
                                 updateURL('settings', null);
                             }
-                        }, __('Settings', 'discount-kit'))
+                        }, __('Settings', 'discountkit'))
                     ),
                     
                     createElement('div', { className: 'discountkit-tab-content' },
@@ -1217,7 +1217,7 @@
                                         }
                                     }) :
                                     createElement('div', { className: 'discountkit-loading' }, 
-                                        __('Loading rule data...', 'discount-kit')
+                                        __('Loading rule data...', 'discountkit')
                                     )
                                 ) :
                                 createElement(RulesList, {

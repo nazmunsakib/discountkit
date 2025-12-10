@@ -33,10 +33,10 @@ class Admin {
 	public function admin_menu() {
 		add_submenu_page(
 			'woocommerce',
-			__( 'DiscountKit', 'discount-kit' ),
-			__( 'DiscountKit', 'discount-kit' ),
+			__( 'DiscountKit', 'discountkit' ),
+			__( 'DiscountKit', 'discountkit' ),
 			'manage_options',
-			'discount-kit',
+			'discountkit',
 			array( $this, 'admin_page' )
 		);
 	}
@@ -48,7 +48,7 @@ class Admin {
 	 */
 	public function remove_notices() {
 		$screen = get_current_screen();
-		if ( $screen && strpos( $screen->id, 'discount-kit' ) !== false ) {
+		if ( $screen && strpos( $screen->id, 'discountkit' ) !== false ) {
 			remove_all_actions( 'admin_notices' );
 			remove_all_actions( 'all_admin_notices' );
 		}
@@ -68,7 +68,7 @@ class Admin {
 					<circle cx="12" cy="16" r="2" fill="white"/>
 					<path d="M9 9H15" stroke="white" stroke-width="2" stroke-linecap="round"/>
 				</svg>
-				<h1><?php esc_html_e( 'DiscountKit', 'discount-kit' ); ?></h1>
+				<h1><?php esc_html_e( 'DiscountKit', 'discountkit' ); ?></h1>
 			</div>
 			<div id="discountkit-admin-root">
 				<div class="discountkit-settings-loader">
