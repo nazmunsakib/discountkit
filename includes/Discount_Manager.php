@@ -50,7 +50,6 @@ class Discount_Manager {
 	 */
 	public function __construct() {
 		$this->define_constants();
-		$this->includes();
 		$this->init_hooks();
 	}
 
@@ -76,20 +75,7 @@ class Discount_Manager {
 		}
 	}
 
-	/**
-	 * Include required files
-	 */
-	public function includes() {
-		include_once DISCOUNTKIT_PLUGIN_PATH . 'includes/Database.php';
-		include_once DISCOUNTKIT_PLUGIN_PATH . 'includes/Settings.php';
-		include_once DISCOUNTKIT_PLUGIN_PATH . 'includes/Rule.php';
-		include_once DISCOUNTKIT_PLUGIN_PATH . 'includes/Calculator.php';
-		include_once DISCOUNTKIT_PLUGIN_PATH . 'includes/Cart_Handler.php';
-		include_once DISCOUNTKIT_PLUGIN_PATH . 'includes/Product_Display.php';
-		include_once DISCOUNTKIT_PLUGIN_PATH . 'includes/REST_API.php';
-		include_once DISCOUNTKIT_PLUGIN_PATH . 'includes/Enqueue.php';
-		include_once DISCOUNTKIT_PLUGIN_PATH . 'includes/Admin.php';
-	}
+
 
 	/**
 	 * Hook into actions and filters
@@ -105,19 +91,11 @@ class Discount_Manager {
 	 * Init plugin when WordPress initializes
 	 */
 	public function init() {
-		// Initialize REST API
 		new REST_API();
-
-		// Initialize enqueue
 		new Enqueue();
-
-		// Initialize cart handler
 		new Cart_Handler();
-
-		// Initialize product display
 		new Product_Display();
-
-		// Initialize admin
+		
 		if ( is_admin() ) {
 			new Admin();
 		}
@@ -152,6 +130,6 @@ class Discount_Manager {
 	 * Plugin deactivation
 	 */
 	public function deactivate() {
-		// Clean up if needed
+		// Placeholder for future cleanup
 	}
 }

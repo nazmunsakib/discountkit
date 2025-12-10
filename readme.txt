@@ -1,7 +1,7 @@
-=== DiscountKit ===
+=== DiscountKit – WooCommerce Discount Rules, Bulk Discounts & Dynamic Pricing ===
 Contributors: nazmunsakib
 Donate link: https://nazmunsakib.com
-Tags: woocommerce discount, discount, discount rules, bulk discount, cart discount
+Tags: woocommerce discount rules, woocommerce dynamic pricing, bulk discount woocommerce, cart discount, product discount
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
@@ -9,114 +9,128 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Create flexible discount rules for your WooCommerce store with support for percentage, fixed, and bulk pricing strategies.
+Create flexible WooCommerce discount rules with percentage discounts, fixed discounts, and bulk pricing options.
 
 == Description ==
 
-DiscountKit allows you to create and manage discount rules for your online store. The plugin provides a straightforward interface for setting up various discount types and applying them to specific products or categories.
+DiscountKit is a WooCommerce discount rules plugin that helps store owners create dynamic pricing and discount conditions in a clear and manageable way.
+
+With DiscountKit, you can apply product-level discounts, cart-level discounts, or bulk pricing rules based on selected products or categories. The plugin integrates smoothly with WooCommerce and keeps discount behavior predictable and easy to control.
+
+DiscountKit is suitable for store owners who need a simple yet flexible solution for managing WooCommerce discounts without unnecessary complexity.
 
 = Features =
 
-* Multiple discount types: percentage, fixed amount, and bulk pricing
-* Product-based filtering with include/exclude options
-* Category-based filtering with include/exclude options
-* Configurable discount calculation from regular or sale prices
-* Priority-based rule ordering
-* Active/inactive rule status management
-* Usage tracking for discount rules
+* Create unlimited WooCommerce discount rules
+* Percentage-based discounts
+* Fixed amount discounts
+* Bulk discount and dynamic pricing support
+* Product-based include and exclude rules
+* Category-based include and exclude rules
+* Calculate discounts from regular price or sale price
+* Priority-based rule execution
+* Enable or disable rules anytime
+* Track discount rule usage
+* WooCommerce-native admin interface
 
-= Rule Types =
+== Rule Types ==
 
-* **Product Adjustment**: Apply discounts directly to individual product prices
-* **Cart Adjustment**: Apply discounts to the entire cart total
-* **Bulk Discount**: Create quantity-based pricing tiers with different discount levels
+DiscountKit supports the following rule types:
 
-= Discount Types =
+* Product Adjustment – Apply discounts directly to individual products
+* Cart Adjustment – Apply discounts to the cart subtotal
+* Bulk Discount – Create quantity-based pricing tiers
 
-Within each rule type, you can choose how the discount is calculated:
+== Discount Types ==
 
-* **Percentage**: Reduce price by a percentage (e.g., 20% off)
-* **Fixed Amount**: Subtract a fixed amount from the price
-* **Fixed Price**: Set a specific price for bulk discount tiers
+Each rule supports multiple discount calculation methods:
 
-= Product Selection =
+* Percentage – Reduce prices by a percentage value
+* Fixed Amount – Subtract a fixed amount from prices
+* Fixed Price – Set a specific price for bulk discount tiers
 
-* Include or exclude specific products
-* Include or exclude entire categories
-* Combine multiple filters for precise targeting
+== Product & Category Targeting ==
 
-= Settings =
+* Include specific products
+* Exclude specific products
+* Include entire categories
+* Exclude entire categories
+* Combine multiple filters for precise discount control
 
-* Choose whether discounts calculate from regular prices or sale prices
-* Configure global discount behavior
-* Reset settings to defaults when needed
+== Settings ==
+
+* Choose whether discounts are calculated from regular price or sale price
+* Control global discount behavior
+* Reset plugin settings to default values
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/discount-kit` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
+1. Upload the plugin files to the /wp-content/plugins/discount-kit/ directory, or install the plugin through the WordPress Plugins screen.
+2. Activate the plugin through the Plugins menu in WordPress.
 3. Ensure WooCommerce is installed and activated.
-4. Navigate to WooCommerce >DiscountKit to configure your discount rules.
+4. Navigate to WooCommerce > DiscountKit to configure your discount rules.
 
 == Frequently Asked Questions ==
 
 = Does this plugin require WooCommerce? =
 
-Yes, WooCommerce must be installed and activated for this plugin to function.
+Yes. WooCommerce must be installed and activated for DiscountKit to function.
 
 = Can I create multiple discount rules? =
 
-Yes, you can create unlimited discount rules and set priorities to control which rule applies when multiple rules match.
+Yes. You can create unlimited discount rules and assign priorities to control which rule applies first.
 
 = What is the difference between Rule Type and Discount Type? =
 
-Rule Type determines where the discount applies:
-– Product Adjustment: Modifies individual product prices
-– Cart Adjustment: Applies to the entire cart subtotal
-– Bulk Discount: Creates tiered pricing based on quantity
+Rule Type defines where the discount applies:
+- Product Adjustment
+- Cart Adjustment
+- Bulk Discount
 
-Discount Type determines how the discount is calculated:
-– Percentage: Calculates discount as a percentage of the price
-– Fixed Amount: Subtracts a specific amount from the price
-– Fixed Price: Sets an exact price (available for bulk discounts)
+Discount Type defines how the discount is calculated:
+- Percentage
+- Fixed Amount
+- Fixed Price (bulk rules only)
 
 = How do bulk discounts work? =
 
-Bulk discounts allow you to set different prices based on quantity ranges. For example, 1-5 items at one price, 6-10 items at a lower price, and so on. You can choose between individual product quantity or cumulative quantity across all matching products.
+Bulk discounts allow you to create tiered pricing based on quantity ranges. For example, 1–5 items at one price and 6–10 items at a lower price. You can apply bulk discounts based on individual product quantity or combined quantities across matching products.
 
-= Can I exclude specific products from discounts? =
+= Can I exclude products or categories from discounts? =
 
-Yes, you can use the exclude option in product filters to prevent discounts from applying to specific products or categories.
+Yes. DiscountKit supports exclude rules for specific products and categories.
 
-= What happens if multiple rules apply to the same product? =
+= What happens when multiple rules apply? =
 
-The plugin uses rule priority to determine which discount applies. Rules with lower priority numbers are evaluated first.
+DiscountKit uses rule priority to determine which discount is applied. Rules with lower priority values are evaluated first.
 
 == Screenshots ==
 
-1. Discount rules management interface
-2. Create new discount rule with product selection
-3. Bulk discount configuration
-4. Plugin settings page
+1. Discount rules management dashboard
+2. Creating a WooCommerce discount rule
+3. Bulk discount tier configuration
+4. DiscountKit settings page
 
 == Changelog ==
 
 = 1.0.0 =
 * Initial release
+* WooCommerce discount rules system
 * Percentage discount support
-* Fixed discount support
-* Bulk discount support
+* Fixed amount discount support
+* Bulk discount and dynamic pricing support
 * Product and category filtering
-* Include/exclude logic
-* Priority-based rule ordering
+* Include and exclude logic
+* Priority-based rule evaluation
 * Settings management
-* Usage tracking
+* Discount usage tracking
 
 == Upgrade Notice ==
 
 = 1.0.0 =
-Initial release ofDiscountKit.
+Initial release of DiscountKit – WooCommerce Discount Rules, Bulk Discounts & Dynamic Pricing.
 
 == Additional Information ==
 
-For support, feature requests, or bug reports, please visit the plugin's GitHub repository at https://github.com/nazmunsakib/discount-kit
+For support, feature requests, or bug reports, visit:
+https://github.com/nazmunsakib/discount-kit

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DiscountKit
  * Plugin URI: https://github.com/nazmunsakib/discount-kit
- * Description: Simple to complex discount rules for your WooCommerce store.
+ * Description: Create flexible WooCommerce discount rules with percentage discounts, fixed discounts, and bulk pricing options.
  * Version: 1.0.0
  * Author: Nazmun Sakib
  * Author URI: https://nazmunsakib.com
