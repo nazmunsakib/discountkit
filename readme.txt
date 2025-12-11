@@ -1,7 +1,7 @@
-=== DiscountKit – WooCommerce Discount Rules, Bulk Discounts & Dynamic Pricing ===
+=== DiscountKit – Discount Rules, Bulk Pricing & Dynamic Pricing for WooCommerce ===
 Contributors: nazmunsakib
 Donate link: https://nazmunsakib.com
-Tags: woocommerce discount rules, woocommerce dynamic pricing, bulk discount woocommerce, cart discount, product discount
+Tags: woocommerce discount rules, woocommerce dynamic pricing, bulk discount, cart discount, product discount
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
