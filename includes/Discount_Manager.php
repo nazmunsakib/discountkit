@@ -81,10 +81,23 @@ class Discount_Manager {
 	 * Hook into actions and filters
 	 */
 	private function init_hooks() {
-		add_action( 'init', array( $this, 'init' ), 0 );
-		add_action( 'plugins_loaded', array( $this, 'check_database' ) );
+		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 		register_activation_hook( DISCOUNTKIT_PLUGIN_FILE, array( $this, 'activate' ) );
 		register_deactivation_hook( DISCOUNTKIT_PLUGIN_FILE, array( $this, 'deactivate' ) );
+		add_action( 'before_woocommerce_init', array( $this, 'declare_compatibility' ) );
+	}
+
+	/**
+	 * Initialize plugin after all plugins are loaded
+	 */
+	public function plugins_loaded() {
+		if ( ! $this->is_woocommerce_active() ) {
+			add_action( 'admin_notices', array( $this, 'woocommerce_missing_notice' ) );
+			return;
+		}
+
+		$this->init();
+		$this->check_database();
 	}
 
 	/**
@@ -101,12 +114,40 @@ class Discount_Manager {
 		}
 	}
 
+	/**
+	 * Check if WooCommerce is active
+	 */
+	private function is_woocommerce_active() {
+		return class_exists( 'WooCommerce' );
+	}
+
+	/**
+	 * Display notice if WooCommerce is not active
+	 */
+	public function woocommerce_missing_notice() {
+		?>
+		<div class="notice notice-error">
+			<p><?php esc_html_e( 'DiscountKit requires WooCommerce to be installed and active.', 'discountkit' ); ?></p>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Declare compatibility with WooCommerce features
+	 */
+	public function declare_compatibility() {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', DISCOUNTKIT_PLUGIN_FILE, true );
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', DISCOUNTKIT_PLUGIN_FILE, false );
+		}
+	}
+
 
 
 	/**
 	 * Check and repair database if needed
 	 */
-	public function check_database() {
+	private function check_database() {
 		$db_version = get_option( 'discountkit_db_version', '0' );
 		
 		if ( version_compare( $db_version, $this->version, '<' ) ) {
